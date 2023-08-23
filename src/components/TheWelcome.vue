@@ -9,6 +9,12 @@ import ForYourHeart from "./ForYourHeart.vue";
 import { onMounted, onUnmounted } from "vue";
 import { isElemVisible } from "../utils/common";
 import { defineAsyncComponent } from "vue";
+import main_comment from "../assets/image/main_comment.png";
+import calendar from "../assets/image/calendar.png";
+import title_album from "../assets/image/title_album.png";
+import title_information from "../assets/image/title_information.png";
+import title_heart from "../assets/image/title_heart.png";
+import title_location from "../assets/image/title_location.png";
 
 const Albums = defineAsyncComponent(() => import("./Albums.vue"));
 
@@ -44,25 +50,20 @@ function handleScroll() {
 <template>
   <MainVisual :type="props.type" />
 
-  <MainComment :type="props.type" />
+  <CardItem> <img class="img_comment" :src="main_comment" /> </CardItem>
 
-  <CardItem
-    v-if="type === 'default'"
-    element-ref="card0"
-    title="Gallery"
-    description="제주도 촬영"
-    :wide="true"
-  >
-    <Albums :type="props.type" />
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/NFadV6-FVjM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <CardItem class="calendar">
+    <img class="img_calendar" :src="calendar" />
   </CardItem>
 
-  <!-- <CardItem element-ref="card1" title="Information" description="예식 안내"
-    ><Information />
-  </CardItem> -->
+  <CardItem v-if="type === 'default'" element-ref="card0" :wide="true">
+    <img class="img_title_album" :src="title_album" />
+    <Albums :type="props.type" />
+  </CardItem>
 
-  <CardItem element-ref="card3" title="Location" description="오시는 길">
-    <Location :type="props.type" />
+  <CardItem element-ref="card1">
+    <img class="img_title_information" :src="title_information" />
+    <Information />
   </CardItem>
 
   <CardItem
@@ -70,37 +71,34 @@ function handleScroll() {
     title="For Your Heart"
     description="마음 전하실 곳"
   >
+    <img class="img_title_heart" :src="title_heart" />
     <ForYourHeart :type="props.type" />
   </CardItem>
 
-  <CardItem
-    v-if="type !== 'default'"
-    element-ref="card0"
-    title="Gallery"
-    description="제주도 촬영"
-    :wide="true"
-    :style="{paddingBottom: 0}"
-  >
-    <Albums :type="props.type" />
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/NFadV6-FVjM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <CardItem element-ref="card3">
+    <img class="img_title_location" :src="title_location" />
+    <Location :type="props.type" />
   </CardItem>
 
   <Footer />
 </template>
 <style scoped>
-iframe {
-    display: block;       
-    border: none;        
-    height: 90vh;        
-    width: 100vw;
-    padding-top: 20px;
+.img_comment,
+.img_calendar,
+.img_title_album,
+.img_title_information,
+.img_title_heart,
+.img_title_location {
+  width: auto;
+  max-width: 358px;
+  margin: 0 auto;
+  display: block;
+}
+
+.calendar {
+  background: #fbfaf6;
 }
 
 @media (min-width: 580px) {
-  iframe {
-    height: 100vh;        
-    width: 100%;
-  }
 }
-
 </style>

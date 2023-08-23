@@ -22,7 +22,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 <style scoped>
 @media (min-width: 1024px) {
   main {
-    max-width: 540px;
+    max-width: var(--breakpoint);
   }
 }
 </style>

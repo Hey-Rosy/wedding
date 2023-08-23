@@ -1,9 +1,9 @@
 <script setup lang="ts">
-defineProps<{
-  title: string;
-  description: string;
+interface Props {
+  title?: string;
+  description?: string;
   wide?: boolean;
-}>();
+}
 </script>
 
 <template>
@@ -44,5 +44,12 @@ defineProps<{
 }
 .header .description {
   color: var(--vt-c-black-soft);
+}
+
+@media (min-width: 580px) {
+  .item {
+    max-width: 548px;
+    margin: 0 auto;
+  }
 }
 </style>

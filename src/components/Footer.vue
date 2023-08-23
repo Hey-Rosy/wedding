@@ -2,17 +2,6 @@
 <template>
   <section class="footer">
     <div class="bg"></div>
-    <div class="texts">
-      <p class="title">THANKS TO</p>
-
-      <div class="thanks_message">
-        <p>
-          사랑으로 키워주신 양가 부모님과<br />
-          늘 저희를 응원해주시는<br />
-          모든 분들께 감사드립니다.
-        </p>
-      </div>
-    </div>
   </section>
 </template>
 <style scoped>

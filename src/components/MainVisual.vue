@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import img from "../assets/image/main.png";
+import main_title from "../assets/image/main_title.png";
+
 const props = defineProps({
   type: String,
 });
@@ -7,19 +9,8 @@ const props = defineProps({
 
 <template>
   <div :class="['main_visual', props.type]">
-    <img :src="img" />
-    <div class="titles">
-      <div class="subtitle">
-        <p>Wedding Invitation</p>
-      </div>
-      <div class="title">
-        <p>KIM EUNMI<br />YOO WONSEON</p>
-      </div>
-    </div>
-    <div class="bottom">
-      <small> 2023.09.03 PM 05:00<br /> </small>
-      <small>Apelgamo Banpo</small>
-    </div>
+    <img :src="img" class="main" />
+    <img :src="main_title" class="main_title" />
   </div>
 </template>
 
@@ -32,12 +23,22 @@ const props = defineProps({
   min-height: 500px;
 }
 
-.main_visual img {
+.main_visual .main {
   width: auto;
   min-height: 500px;
-  max-height: 80vh;
+  max-height: 98vh;
   transform: translateX(-50%);
   margin-left: 50%;
+}
+
+.main_visual .main_title {
+  width: 252px;
+  height: 144px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50px;
+  margin: 0 auto;
 }
 .titles {
   position: absolute;

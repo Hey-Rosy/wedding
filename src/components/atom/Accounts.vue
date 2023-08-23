@@ -11,7 +11,15 @@ const props = defineProps({
 </template>
 <style scoped>
 .accounts {
-  margin: 40px 0.5rem;
+  padding: 18px 16px;
+}
+
+.accounts.m {
+  background: #f6f7fb;
+}
+
+.accounts.w {
+  background: #f9f6f9;
 }
 
 .accounts .title {

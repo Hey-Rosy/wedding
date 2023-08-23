@@ -41,19 +41,19 @@ async function onClick() {
   margin-top: 2px;
 }
 .btn_copy {
+  font-family: "NanumSquare", sans-serif;
   display: flex;
-  color: var(--vt-c-black-mute);
-  background-color: var(--vt-c-beige);
-  color: #282828c9;
-  font-weight: bold;
-  padding: 5px 7px;
-  border-radius: 7px;
+  color: #555;
+  font-weight: 400;
+  padding: 11px 12px;
+  border-radius: 4px;
   font-size: 15px;
   min-width: 64px;
+  border: 1px solid #f5f5f5;
 }
 .icon_copy {
   width: 16px;
-  margin-right: 2px;
+  margin-right: 6px;
   margin-top: 1px;
 }
 

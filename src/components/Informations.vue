@@ -5,6 +5,9 @@ import Tabs from "./atom/Tabs.vue";
 import TabContent from "./atom/TabContent.vue";
 import { Fade } from "@egjs/flicking-plugins";
 import { ref } from "vue";
+import info_1 from "../assets/image/info_1.png";
+import info_2 from "../assets/image/info_2.png";
+import info_3 from "../assets/image/info_3.png";
 
 const activeIndex = ref(0);
 const flickingContainer = ref(null);
@@ -15,11 +18,10 @@ function changeTab(index: number) {
   flicking?.moveTo(index, 500);
 }
 
-const titles = ["장소 안내", "식사 안내", "주차 안내"];
 const contents = [
-  "PJ 호텔 1층에 위치한 소규모 단독홀입니다.<br/>1층  뮤즈홀 전용 출입구 또는 호텔 정문으로 입장 가능합니다. <br/><br/>일찍 도착하신 분은 호텔 2층 카페에서 제공하는 무료 커피를 이용하실 수 있습니다.<br/>",
-  "호텔 3층 뷔페 공간을 전용으로 사용하고, 예식 30분 전 3시 30분 부터 식사가 가능합니다.<br/><br/>오픈키친·샐러드 코너·한식코너·양식코너·중식코너·스시·롤코너·디저트코너 등 200여가지의 뷔페 메뉴가 준비되어있으니 부족하지 않게 식사를 즐겨주세요. ",
-  "하객 무료주차는 2시간 제공합니다.<br/> 호텔 도보 5분 거리의 ‘을지트윈타워 지하주차장 (B5 ~ B6)’을 이용바랍니다.",
+  "이탈리아의 성지순례로 유명한 아시시(Assisi)에서 영감을 받은 아시시 홀에서 저희 두 사람의 웨딩이 진행됩니다. 라도무스 아트센터 1층에 위치한 단독홀입니다.",
+  "1층에 단독으로 사용하는 넓은 연회장에서 여유 있는 식사가 가능합니다.<br/>연회장은 15:30~18:00까지 이용가능합니다. 음주류 무제한이고,<br/>식사 안 하시는 분들을 위해 답례품 준비되어 있습니다.",
+  "서대전 IC, 유성 IC에서 10분 거리이고 대전 시내 중심부를<br/>지나지 않아 여유로운 이동이 가능합니다. 주차타워 및 주차장으로 <br/>1300대 동시 주차 가능하고 주차시간의 제한이 없습니다.",
 ];
 const plugins = [new Fade()];
 
@@ -29,20 +31,7 @@ function onChanged({ index }: { index: number }) {
 </script>
 
 <template>
-  <div class="tabs"></div>
-  <Tabs>
-    <template #button>
-      <div class="tab_buttons">
-        <Tab
-          v-for="(title, index) in titles"
-          :key="index"
-          :class="['tab_button']"
-          :title="title"
-          :isActive="index === activeIndex"
-          @click="changeTab(index)"
-        />
-      </div>
-    </template>
+  <Tabs class="tabs">
     <template #content>
       <Flicking-Items
         ref="flickingContainer"
@@ -52,7 +41,7 @@ function onChanged({ index }: { index: number }) {
         <TabContent
           v-for="(content, index) in contents"
           :key="`content_${index}`"
-          :img="`info${index + 1}.png`"
+          :img="`info_${index + 1}.png`"
           :content="content"
         />
       </Flicking-Items>
@@ -61,6 +50,9 @@ function onChanged({ index }: { index: number }) {
 </template>
 
 <style scoped>
+.tabs {
+  margin-top: 18px;
+}
 .tab_buttons {
   display: flex;
   justify-content: space-between;
