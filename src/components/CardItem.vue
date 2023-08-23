@@ -7,11 +7,8 @@ interface Props {
 </script>
 
 <template>
-  <div :class="['item', 'fade-in', { wide }]">
-    <div class="header">
-      <p class="title">{{ title }}</p>
-      <p class="description">{{ description }}</p>
-    </div>
+  <div :class="['item', 'fade-in']">
+    <div class="header"></div>
     <div class="details">
       <h3>
         <slot name="heading"></slot>
