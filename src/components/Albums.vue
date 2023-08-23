@@ -13,7 +13,7 @@ const props = defineProps({
 });
 
 const showLayerImage = ref(false),
-  pickedImage = ref({});
+  pickedImage = ref({ img: "", is_full: false });
 const tabs = [
   { name: "a", title: "SCENE #1" },
   { name: "b", title: "SCENE #2" },
