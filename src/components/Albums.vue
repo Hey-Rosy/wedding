@@ -111,7 +111,6 @@ function isLoaded(tab: string) {
               <img
                 v-lazy="{
                   src: pictureOf(index, tab.name),
-                  loading: LoadingGif,
                 }"
                 @click="showLayer(index, tab.name)"
               />
@@ -132,7 +131,6 @@ function isLoaded(tab: string) {
               <img
                 v-lazy="{
                   src: pictureOf(index, tab.name),
-                  loading: LoadingGif,
                 }"
                 @click="showLayer(index, tab.name)"
               />
@@ -181,9 +179,9 @@ function isLoaded(tab: string) {
 }
 
 img[lazy="loading"] {
-  width: 30px;
+  /* width: 30px;
   height: 30px;
-  margin: 0 auto;
+  margin: 0 auto; */
 }
 
 .tab_buttons {
