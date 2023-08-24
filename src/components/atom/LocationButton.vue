@@ -23,17 +23,18 @@ function getImageUrl() {
 <style scoped>
 .logo {
   width: 16px;
-  margin-right: 4px;
+  height: 16px;
+  margin-right: 8px;
+  margin-top: 3px;
 }
-.btn_location {
+.btn_location:deep {
   display: flex;
-  font-size: 12px;
   line-height: 16px;
   flex-grow: 1;
   flex-basis: min-content;
   justify-content: center;
-  background-color: var(--vt-c-beige-soft);
-  padding: 10px;
-  color: var(--vt-c-black-soft);
+  border: 1px solid #f4f4f4;
+  padding: 12px 0;
+  background-color: #fafafa;
 }
 </style>

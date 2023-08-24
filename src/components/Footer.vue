@@ -11,7 +11,7 @@
   padding: 80px 0;
   background: url("../assets/image/footer.png") no-repeat center center / cover;
   color: #fff;
-  height: 272px;
+  height: 198px;
   position: relative;
 }
 .footer .title {

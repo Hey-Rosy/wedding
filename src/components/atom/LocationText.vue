@@ -17,9 +17,7 @@ const props = defineProps({
 
 <style scoped>
 .location_text {
-  padding: 1rem;
-  background-color: var(--vt-c-white-soft);
-  margin: 5px 0;
+  margin: 5px 0 40px;
   font-size: 14px;
   color: var(--vt-c-black-mute);
 }
@@ -29,9 +27,9 @@ const props = defineProps({
 }
 .title {
   font-family: "Nanum Myeongjo", serif;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: bold;
-  margin-bottom: 13px;
-  color: var(--vt-c-black-soft);
+  margin-bottom: 5px;
+  color: #000;
 }
 </style>

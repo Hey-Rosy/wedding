@@ -32,7 +32,7 @@ async function onClick() {
   display: flex;
   gap: 1rem;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem 0;
 }
 .btn_wrap {
   display: flex;

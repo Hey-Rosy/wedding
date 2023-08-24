@@ -12,7 +12,7 @@ const props = defineProps({
   <KakaoMap />
   <TextCopy
     :class="['location_copy', type]"
-    copy-text="서울특별시 서초구 반포대로 235"
+    copy-text="대전광역시 유성구 동서대로 639"
   >
     <slot>
       <p><em>라도무스 아트센터</em></p>
@@ -20,22 +20,22 @@ const props = defineProps({
     </slot>
   </TextCopy>
   <div :class="['btn_locations', type]">
-    <LocationButton type="naver" link="https://naver.me/xM2E86s2"
-      ><span class="text">네이버지도</span></LocationButton
+    <LocationButton type="kakao" link="http://kko.to/6NFHHcyk1U"
+      ><span class="loc_text">카카오네비</span></LocationButton
     >
-    <LocationButton type="kakao" link="http://kko.to/hdV-T0HnHP"
-      ><span class="text">카카오맵</span></LocationButton
+    <LocationButton type="tmap" link="https://surl.tmobiapi.com/4a73b46a"
+      ><span class="loc_text">티맵</span></LocationButton
     >
-    <LocationButton type="tmap" link="https://surl.tmobiapi.com/bb86b4c4"
-      ><span class="text">티맵</span></LocationButton
+    <LocationButton type="naver" link="https://naver.me/Gkkzxlt4"
+      ><span class="loc_text">네이버지도</span></LocationButton
     >
   </div>
   <div :class="['text_locations', type]">
     <LocationText title="자가용 이용시">
       <p class="text">
-        서대전IC, 유성IC에서 10분거리로 1300대 동시주차 가능합니다.
+        서대전IC, 유성IC에서 10분거리로 1300대 동시주차 가능합니다. 주차시간의
+        제한이 없습니다.
       </p>
-      <p class="text">주차시간의 제한이 없습니다.</p>
     </LocationText>
     <LocationText title="KTX 기차 이용시">
       <p class="text">
@@ -54,18 +54,17 @@ const props = defineProps({
 <style>
 .btn_locations {
   display: flex;
-  gap: 1px;
+  gap: 4px;
   margin: 0 auto;
 }
 .text_locations {
-  margin-top: 1rem;
+  margin-top: 30px;
 }
 
 .location_copy,
 .text_locations .text {
-  font-family: "Nanum Myeongjo", serif;
-  font-size: 16px;
-  padding: 20px 0;
+  font-family: "NanumSquare", sans-serif;
+  font-size: 12px;
 }
 
 .location_copy em {
@@ -80,7 +79,15 @@ const props = defineProps({
 .location_copy.default,
 .btn_locations.default .text,
 .text_locations.default .text {
-  font-family: "Nanum Myeongjo", serif;
-  font-size: 13px;
+  font-family: "NanumSquare", sans-serif;
+  font-size: 12px;
+  color: #000;
+  font-weight: 400;
+}
+
+.loc_text {
+  font-size: 11px;
+  font-family: "NanumSquare", sans-serif;
+  color: #222;
 }
 </style>

@@ -7,6 +7,7 @@ import Tab from "./atom/Tab.vue";
 import Tabs from "./atom/Tabs.vue";
 import TabSlot from "./atom/TabSlot.vue";
 import { Fade } from "@egjs/flicking-plugins";
+import btn_more from "../assets/image/btn_more.png";
 
 const props = defineProps({
   type: String,
@@ -26,6 +27,7 @@ function onChanged({ index }: { index: number }) {
 }
 const activeIndex = ref(0);
 const flickingContainer = ref(null);
+const showMore = ref({ a: false, b: false, c: false });
 
 function changeTab(index: number) {
   activeIndex.value = index;
@@ -51,7 +53,32 @@ const isFullImage = (index: number) => {
   return index === 1 || index === 8;
 };
 
-const albumCounts = Array.from({ length: 14 }, (v, k) => k + 1);
+const albumCountsTop = Array.from({ length: 7 }, (v, k) => k + 1);
+const albumCountsBottom = Array.from({ length: 7 }, (v, k) => k + 8);
+
+function loadMore(tab: string) {
+  switch (tab) {
+    case "a":
+      showMore.value.a = true;
+      return;
+    case "b":
+      showMore.value.b = true;
+      return;
+    case "c":
+      showMore.value.c = true;
+      return;
+  }
+}
+function isLoaded(tab: string) {
+  switch (tab) {
+    case "a":
+      return showMore.value.a;
+    case "b":
+      return showMore.value.b;
+    case "c":
+      return showMore.value.c;
+  }
+}
 </script>
 
 <template>
@@ -78,7 +105,28 @@ const albumCounts = Array.from({ length: 14 }, (v, k) => k + 1);
           <div class="albums">
             <div
               :class="['picture', { full: isFullImage(index) }]"
-              v-for="index in albumCounts"
+              v-for="index in albumCountsTop"
+              :key="`pic_${index}`"
+            >
+              <img
+                v-lazy="{
+                  src: pictureOf(index, tab.name),
+                  loading: LoadingGif,
+                }"
+                @click="showLayer(index, tab.name)"
+              />
+            </div>
+          </div>
+          <img
+            v-if="!isLoaded(tab.name)"
+            :src="btn_more"
+            class="btn_more"
+            @click="loadMore(tab.name)"
+          />
+          <div class="albums" v-if="isLoaded(tab.name)">
+            <div
+              :class="['picture', { full: isFullImage(index) }]"
+              v-for="index in albumCountsBottom"
               :key="`pic_${index}`"
             >
               <img
@@ -108,7 +156,7 @@ const albumCounts = Array.from({ length: 14 }, (v, k) => k + 1);
 <style scoped>
 .albums {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 4px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 4px;
@@ -142,5 +190,12 @@ img[lazy="loading"] {
   display: flex;
   justify-content: space-between;
   margin: 20px 16px;
+}
+
+.btn_more {
+  width: auto;
+  max-width: 358px;
+  margin: 20px auto 0;
+  display: block;
 }
 </style>
