@@ -24,7 +24,6 @@ button {
 
 .active button {
   font-weight: 700;
-  border-bottom: 2px solid #333;
   opacity: 1;
 }
 </style>

@@ -39,18 +39,6 @@ const tabs = [
 
 <template>
   <Tabs class="tabs">
-    <template #button>
-      <div class="tab_buttons">
-        <Tab
-          v-for="(tab, index) in tabs"
-          :key="index"
-          :class="['tab_button']"
-          :title="tab.title"
-          :isActive="index === activeIndex"
-          @click="changeTab(index)"
-        />
-      </div>
-    </template>
     <template #content>
       <Flicking-Items
         ref="flickingContainer"

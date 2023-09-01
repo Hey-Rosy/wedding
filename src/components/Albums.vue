@@ -187,9 +187,13 @@ img[lazy="loading"] {
   display: flex;
   justify-content: space-between;
   margin: 10px 16px;
-  padding: 15px 0 10px;
+  padding: 12px 0 10px;
   border-top: 1px dotted #ddd;
   border-bottom: 1px dotted #ddd;
+}
+
+.tab_buttons::v-deep button {
+  padding-bottom: 2px;
 }
 
 .btn_more {
