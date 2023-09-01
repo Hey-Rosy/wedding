@@ -9,7 +9,7 @@ defineProps<{
 <template>
   <div class="layer_image_view" @click="$emit('close')">
     <button class="btn_close"></button>
-    <div class="layer_content">
+    <div :class="['layer_content', { full: image.is_full }]">
       <img
         :class="['layer_image', { full: image.is_full }]"
         v-lazy="{ src: image.img, loading: LoadingGif }"
@@ -36,10 +36,13 @@ defineProps<{
 
 .layer_content {
   width: 100%;
-  height: 70%;
+  height: 85%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+}
+
+.layer_content.full {
+  flex-direction: column;
 }
 
 .layer_image {
@@ -49,8 +52,9 @@ defineProps<{
 }
 
 .layer_image.full {
-  width: 100%;
+  width: 200%;
   height: auto;
+  transform: translateX(-25%);
 }
 
 .btn_close {

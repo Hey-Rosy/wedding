@@ -45,6 +45,11 @@ interface Props {
 
 @media (min-width: 580px) {
   .item {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .details {
     max-width: 548px;
     margin: 0 auto;
   }

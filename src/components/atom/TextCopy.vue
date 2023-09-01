@@ -50,6 +50,7 @@ async function onClick() {
   font-size: 15px;
   min-width: 64px;
   border: 1px solid #f5f5f5;
+  background-color: #fff;
 }
 .icon_copy {
   width: 16px;

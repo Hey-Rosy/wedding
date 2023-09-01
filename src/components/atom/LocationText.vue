@@ -17,9 +17,13 @@ const props = defineProps({
 
 <style scoped>
 .location_text {
-  margin: 5px 0 40px;
+  margin: 5px 0 20px;
   font-size: 14px;
   color: var(--vt-c-black-mute);
+}
+.location_text + .location_text {
+  padding-top: 20px;
+  border-top: 1px dotted #ddd;
 }
 
 .location_text.emphasis {

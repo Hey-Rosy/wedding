@@ -69,13 +69,16 @@ const props = defineProps({
 }
 
 .text_copy.second {
-  margin-top: 20px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dotted #ddd;
 }
 
 .comment {
   font-family: "Nanum Myeongjo", serif;
   text-align: center;
   margin: 47px auto 30px;
+  font-size: 12px;
 }
 
 .texts {

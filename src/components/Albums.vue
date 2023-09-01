@@ -2,7 +2,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import LayerImage from "./LayerImage.vue";
-import LoadingGif from "@/assets/image/load-loading.gif";
 import Tab from "./atom/Tab.vue";
 import Tabs from "./atom/Tabs.vue";
 import TabSlot from "./atom/TabSlot.vue";
@@ -187,7 +186,10 @@ img[lazy="loading"] {
 .tab_buttons {
   display: flex;
   justify-content: space-between;
-  margin: 20px 16px;
+  margin: 10px 16px;
+  padding: 15px 0 10px;
+  border-top: 1px dotted #ddd;
+  border-bottom: 1px dotted #ddd;
 }
 
 .btn_more {

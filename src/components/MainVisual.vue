@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div :class="['main_visual', props.type]">
+  <div :class="['main_visual', props.type, 'fade-in']">
     <img :src="img" class="main" />
     <img :src="main_title" class="main_title" />
   </div>
@@ -26,7 +26,7 @@ const props = defineProps({
 .main_visual .main {
   width: auto;
   min-height: 500px;
-  max-height: 98vh;
+  max-height: 813px;
   transform: translateX(-50%);
   margin-left: 50%;
 }

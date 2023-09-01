@@ -52,7 +52,7 @@ function handleScroll() {
 
   <CardItem> <img class="img_comment" :src="main_comment" /> </CardItem>
 
-  <CardItem class="calendar">
+  <CardItem class="calendar" style="max-width: 1200px">
     <img class="img_calendar" :src="calendar" />
   </CardItem>
 
@@ -61,7 +61,7 @@ function handleScroll() {
     <Albums :type="props.type" />
   </CardItem>
 
-  <CardItem element-ref="card1">
+  <CardItem element-ref="card1" :style="{ 'background-color': '#fbfaf6' }">
     <img class="img_title_information" :src="title_information" />
     <Information />
   </CardItem>

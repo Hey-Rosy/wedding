@@ -15,14 +15,16 @@ defineProps<{
 <style scoped>
 button {
   font-family: "Nanum Myeongjo", serif;
-  font-size: 16px;
-  color: rgba(51, 51, 51, 0.8);
+  font-size: 14px;
+  color: #5a5d3f;
   padding-bottom: 10px;
+  font-weight: normal;
+  opacity: 0.4;
 }
 
 .active button {
-  color: #333;
-  font-weight: bold;
+  font-weight: 700;
   border-bottom: 2px solid #333;
+  opacity: 1;
 }
 </style>

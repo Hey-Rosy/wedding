@@ -1,9 +1,11 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import Tabs from "./atom/Tabs.vue";
 import TabContent from "./atom/TabContent.vue";
 import { Fade, Pagination } from "@egjs/flicking-plugins";
 import { ref } from "vue";
+import Tab from "./atom/Tab.vue";
+import Tabs from "./atom/Tabs.vue";
+import TabSlot from "./atom/TabSlot.vue";
 import info_1 from "../assets/image/info_1.png";
 import info_2 from "../assets/image/info_2.png";
 import info_3 from "../assets/image/info_3.png";
@@ -28,15 +30,32 @@ const plugins = [new Fade(), new Pagination({ type: "bullet" })];
 function onChanged({ index }: { index: number }) {
   activeIndex.value = index;
 }
+const tabs = [
+  { name: "a", title: "예식 안내" },
+  { name: "b", title: "식사 안내" },
+  { name: "c", title: "오시는 길" },
+];
 </script>
 
 <template>
   <Tabs class="tabs">
+    <template #button>
+      <div class="tab_buttons">
+        <Tab
+          v-for="(tab, index) in tabs"
+          :key="index"
+          :class="['tab_button']"
+          :title="tab.title"
+          :isActive="index === activeIndex"
+          @click="changeTab(index)"
+        />
+      </div>
+    </template>
     <template #content>
       <Flicking-Items
         ref="flickingContainer"
         class="flicking"
-        :options="{ circular: true }"
+        :options="{ circular: true, align: 'next' }"
         :plugins="plugins"
         @changed="onChanged"
       >
@@ -76,5 +95,14 @@ function onChanged({ index }: { index: number }) {
 }
 .flicking:deep .flicking-pagination-bullet-active {
   background-color: #000;
+}
+
+.tab_buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 16px;
+  padding: 15px 0 10px;
+  border-top: 1px dotted #ddd;
+  border-bottom: 1px dotted #ddd;
 }
 </style>

@@ -28,6 +28,9 @@ img {
 }
 .content {
   padding-top: 10px;
+  text-align: center;
+  max-width: 370px;
+  margin: 0 auto;
 }
 .content :deep(p) {
   font-style: normal;
